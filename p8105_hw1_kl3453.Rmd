@@ -5,4 +5,36 @@ date: "2023-09-18"
 output: github_document
 ---
 
+# Problem 1
 
+### 1. "Load the 'moderndive' libary..."
+```{r} 
+library(moderndive)
+```
+
+  *   _For future reference, you can name blocks of code for identification when R throws errors when knitting. ie. it's a good idea to name the above code as "r setup" because you are 'setting up' your markdown by importing appropriate libraries._
+
+  *   _You can also use "include=FALSE" within the brackets (ie. {r setup, include=FALSE}) to hide a block of code._
+
+### 2. "...and use the following code to load the 'early_january_weather' dataset." 
+
+Write a short description of the dataset using inline R code; accessing the dataset help file can be informative. In your discussion, please include:
+
+*   the variables in this dataset, including names / values of important variables
+*   the size of the dataset (using nrow and ncol)
+*   the mean temperature"
+```{r}
+data("early_january_weather")
+
+# Short description - Variables in Dataset
+#   The file was accessed through the "Envrionment" tab by double clicking on the dataframe. Of the variables, 1 is "chr" type, 4 are "int" types, 9 are "num" types, and 1 is "POSIXct" type (some kind of time format). The 4 int type variables (year, month, day, hour) record the time and seem to be summarized by the "POSIXct" type "time_hour" by combining all 4 variables into one. The 9 "num" types are all some measurement of the climate (temp, dewp, humid, wind_dir, wind_speed, wind_gust, precip, pressure, visib) supposedly relating to flying conditions. The final "chr" type seems to be the names of airports (i think "EWR" for "Newark").
+
+# Short description - Size of Dataset
+#   The dataframe appears to have 358 rows (nrow = 358) of information each with 15 variables (ncol = 15).
+
+# Short description - Mean Temperature
+#summary(early_january_weather)
+```
+*   ~~NOTE~~: "_hw1_df = data("early_january_weather")_" records the dataset as a single string "early_january_weather". To access the actual data and utilize descriptive statistic functions in R (ie. "Summary(), head()"), remove the quotations.
+    *   __NEVERMIND__: the purpose of 'data("early_january_weather")' is to import the dataset from the library "moderndive" (which includes a lot of other datasets) so it is readily accessible in R. To 'call' the dataset, simply refer it as early_january_weather (without the quotes) when using R.  functions.
+        * I was trying to assign a variable to the dataset. dont need to.
