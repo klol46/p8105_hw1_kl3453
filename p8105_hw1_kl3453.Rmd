@@ -71,3 +71,12 @@ ggsave("scat_weather.pdf")
 
 
 # Problem 2
+
+This problem is intended to emphasize variable types and introduce coercion; some awareness of how R treats numeric, character, and factor variables is necessary for working with these data types in practice.
+
+Create a data frame comprised of:
+
+*   a random sample of size 10 from a standard Normal distribution
+*   a logical vector indicating whether elements of the sample are greater than 0
+*   a character vector of length 10
+*   a factor vector of length 10, with 3 different factor “levels”
