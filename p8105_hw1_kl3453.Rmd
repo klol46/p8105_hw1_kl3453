@@ -74,7 +74,7 @@ ggsave("scat_weather.pdf")
 
 This problem is intended to emphasize variable types and introduce coercion; some awareness of how R treats numeric, character, and factor variables is necessary for working with these data types in practice.
 
-Create a data frame comprised of:
+### 1. Create a data frame comprised of:
 
 *   a random sample of size 10 from a standard Normal distribution
 *   a logical vector indicating whether elements of the sample are greater than 0
@@ -86,8 +86,43 @@ problem2_df =
   tibble(
     rand_samp = rnorm (10),
     l_vec = rand_samp > 0,
-    c_vec = c(10),
+    c_vec = character(10),
     f_vec = factor(c("Apple", "Apple", "Pear", "Orange", "Apple", "Apple", "Pear", "Apple", "Orange", "Pear"))
   )
 ```
 
+### 2. Create a data frame comprised of:
+
+Try to take the mean of each variable in your dataframe. What works and what doesn’t?
+
+```{r, include = FALSE}
+#Pull Variables from dataset "problem2_df"
+rand_samp_p = problem2_df %>% pull(rand_samp)
+l_vec_p = problem2_df %>% pull(l_vec)
+c_vec_p = problem2_df %>% pull(c_vec)
+f_vec_p = problem2_df %>% pull(f_vec)
+```
+
+```{r}
+#Take Mean (The variables were pulled, the code is hidden for clarity)
+mean(rand_samp_p)
+mean(l_vec_p)
+mean(c_vec_p)
+mean(f_vec_p)
+```
+
+__Description:__ The mean of the random sample vector and the logic vector were taken. It seems that the mean was not able to be done on the factor vector and the character vector.
+
+### 3. In some cases...
+
+...you can explicitly convert variables from one type to another. Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (please show this chunk but not the output). What happens, and why? Does this help explain what happens when you try to take the mean?
+
+```{r, eval = FALSE}
+#To prevent output, add "eval = FALSE" into codeblock setup.
+as.numeric(rand_samp_p)
+as.numeric(l_vec_p)
+as.numeric(c_vec_p)
+as.numeric(f_vec_p)
+```
+
+The character vector was and the factor vector threw warning messages that indicated that they were not numerical or logical variable types and thus numerical functions are not able to be performed on these variable types.
