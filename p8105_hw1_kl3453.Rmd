@@ -38,14 +38,14 @@ skimr::skim(early_january_weather)
 ```
 __Response__: 
 
-1.  __Variables in Dataset__
-    *   Of the variables, 1 is "chr" type, 4 are "int" types, 9 are "num" types, and 1 is "POSIXct" type (some kind of time format). The 4 int type variables (year, month, day, hour) record the time and seem to be summarized by the "POSIXct" type "time_hour" by combining all 4 variables into one. The 9 "num" types are all some measurement of the climate (temp, dewp, humid, wind_dir, wind_speed, wind_gust, precip, pressure, visib) supposedly relating to flying conditions. The final "chr" type seems to be the names of airports (i think "EWR" for "Newark").
+1.  __Variables in Dataset:__
+  Of the variables, 1 is "chr" type, 4 are "int" types, 9 are "num" types, and 1 is "POSIXct" type (some kind of time format). The 4 int type variables (year, month, day, hour) record the time and seem to be summarized by the "POSIXct" type "time_hour" by combining all 4 variables into one. The 9 "num" types are all some measurement of the climate (temp, dewp, humid, wind_dir, wind_speed, wind_gust, precip, pressure, visib) supposedly relating to flying conditions. The final "chr" type seems to be the names of airports (i think "EWR" for "Newark").
 
-2.   __Size of Dataset__
-    *   The dataframe appears to have 358 rows (nrow = 358) of information each with 15 variables (ncol = 15).
+2.   __Size of Dataset:__
+  The dataframe appears to have 358 rows (nrow = 358) of information each with 15 variables (ncol = 15).
 
-3.   __Mean Temperature__
-    *   From the skim function in the skimr package, we can see that the mean temperature is 39.6.
+3.   __Mean Temperature:__
+  From the skim function in the skimr package, we can see that the mean temperature is 39.6.
     
 ### 3. "Make a scatterplot of..."
 
@@ -61,12 +61,13 @@ library(tidyverse)
 ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
 ```
 
-* __Description__: As time_hour increases, temp gradually increases up to around "Jan 14" where temperature exhibits a sharp drop. Humid, as seen in the colors, also exhibits an overall gradual increase up to around "Jan 14". Amidst this overall trend, temp exhibits fluctuations as seen in alternating peaks and troughs. Humid, though difficult to tell, also exhibits some fluctuation. Visually it's difficult to tell if there's a relationship between humid and temp. 
+* __Description__: As time_hour increases, temp gradually increases up to around "Jan 14" where temperature exhibits a sharp drop. Humid, as seen in the color intensity, also exhibits an overall gradual increase up to around "Jan 14". Amidst this overall trend, temp exhibits fluctuations as seen in alternating peaks and troughs. Humid, though difficult to tell, also exhibits some fluctuation. Visually it's difficult to tell if there's a relationship between humid and temp. 
 
 Export your scatterplot to your project directory using ggsave.
 
 ```{r}
-ggsave
+ggsave("scat_weather.pdf")
 ```
 
 
+# Problem 2
