@@ -12,7 +12,7 @@ output: github_document
 library(moderndive)
 ```
 
-  *   _For future reference, you can name blocks of code for identification when R throws errors when knitting. ie. it's a good idea to name the above code as "r setup" because you are 'setting up' your markdown by importing appropriate libraries._
+  *   _To Future Me: For future reference, you can name blocks of code for identification when R throws errors when knitting. ie. it's a good idea to name the above code as "r setup" because you are 'setting up' your markdown by importing appropriate libraries._
 
   *   _You can also use "include=FALSE" within the brackets (ie. {r setup, include=FALSE}) to hide a block of code._
 
@@ -22,18 +22,21 @@ Write a short description of the dataset using inline R code; accessing the data
 
 *   the variables in this dataset, including names / values of important variables
 *   the size of the dataset (using nrow and ncol)
-*   the mean temperature"
+*   the mean temperature
 ```{r, eval = FALSE}
 #The eval, code output, is hidden for viewing clarity.
 
 # Import Dataframe "early_january_weather")
 data("early_january_weather")
+##  NOTE: Upon import, "early_january_weather" appeared in the envrionment and provided information on     the variable types. This is how I answered the first bulletpoint.
 
 #View Dataset
 View(early_january_weather)
+##  NOTE: "View" helped provide the nrow and ncol of the dataset. This is not easily outputted in          markdown which is why the note is here to acknowledge that I analyzed the "view" output though not     obvious in the markdown.
 
 #skimr to help summarize data
 skimr::skim(early_january_weather)
+##  NOTE: "skimr:skim" was able to produce mean temperature for the 3rd bullet opoint.
 
 ```
 __Response__: 
@@ -58,6 +61,7 @@ library(tidyverse)
 
 
 ```{r}
+# To plot scatter, use ggplot and plot the dataset and setting x-axis to time_hour variable, y-axis to temp variable and "color" to humid variable. 
 ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
 ```
 
@@ -125,4 +129,4 @@ as.numeric(c_vec_p)
 as.numeric(f_vec_p)
 ```
 
-The character vector was and the factor vector threw warning messages that indicated that they were not numerical or logical variable types and thus numerical functions are not able to be performed on these variable types.
+The character vector was and the factor vector threw warning messages that indicated that they were not numerical or logical variable types and thus numerical functions are not able to be performed on these variable types. This helps explain what happened when the means where taken of the 4 variables previously.
